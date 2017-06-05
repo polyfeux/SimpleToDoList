@@ -23,7 +23,7 @@ public class ItemList {
 
 	public Item getItemById(int id) {
 		Item i = items.get(id);
-		
+
 		return i;
 	}
 
@@ -38,7 +38,8 @@ public class ItemList {
 			s.append(item.getName());
 			s.append("\n");
 		}
-
-		return s.toString();
+		
+		// letzten Zeilenumbruch "\n" entfernen
+		return s.toString().substring(0, s.length() - 1);
 	}
 }

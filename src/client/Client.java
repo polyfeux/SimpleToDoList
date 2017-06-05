@@ -28,8 +28,14 @@ public class Client {
 		} else {
 			System.out.println(list.getItemById(Integer.parseInt(s)));
 		}
+
 		
-		
+		while (!keyboard.next().equals("q")) {
+			System.out.println(list);
+			System.out.println("mach was!, drueck -q- zum beenden!");
+		}
+
+		keyboard.close();
 
 	}
 }
