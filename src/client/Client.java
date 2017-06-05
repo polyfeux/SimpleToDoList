@@ -2,37 +2,42 @@ package client;
 
 import java.util.Scanner;
 
-import model.Item;
+import dummy.DummyData;
 import model.ItemList;
-import model.ItemStatus;
+import view.ItemView;
+import view.MenuView;
 
 public class Client {
 	public static void main(String[] args) {
 		Scanner keyboard = new Scanner(System.in);
 
-		System.out.println("A simple ToDo-List:\n");
-
 		ItemList list = new ItemList();
-		list.add(new Item("item1"));
-		list.add(new Item("item2"));
-		list.add(new Item("item3")).setStatus(ItemStatus.DONE);
+		DummyData.ddFiller(list);
 
-		System.out.println(list);
+		System.out.println("--- A simple ToDo-List: ---");
 
-		System.out.println(list.getItemById(2));
+		int wahl = -1;
+		MenuView.listMenu();
+		while (wahl != 0) {
+			wahl = keyboard.nextInt();
 
-		String s = keyboard.next();
-
-		if (s.equals("ls")) {
-			System.out.println(list);
-		} else {
-			System.out.println(list.getItemById(Integer.parseInt(s)));
-		}
-
-		
-		while (!keyboard.next().equals("q")) {
-			System.out.println(list);
-			System.out.println("mach was!, drueck -q- zum beenden!");
+			switch (wahl) {
+			case 0:
+				System.out.println("Bye Bye");
+				break;
+			case 1:
+				ItemView.displayItems(list);
+				break;
+			case 2:
+				System.out.println("case2");
+				break;
+			case 3:
+				System.out.println("case3");
+				break;
+			default:
+				System.out.println("da war was falsch");
+				break;
+			}
 		}
 
 		keyboard.close();
