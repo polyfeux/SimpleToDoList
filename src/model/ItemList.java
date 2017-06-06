@@ -6,7 +6,7 @@ public class ItemList {
 	private ArrayList<Item> items = new ArrayList<>();
 
 	private static int counter = 0;
-	
+
 	public Item createNew(Item i) {
 		i.setId(counter++);
 		items.add(i);
@@ -24,6 +24,18 @@ public class ItemList {
 		return i;
 	}
 
+	public ItemList switchStatus(int id) {
+		Item temp = this.getItemById(id);
+
+		if (temp.getStatus() == ItemStatus.DONE) {
+			temp.setStatus(ItemStatus.TODO);
+		} else {
+			temp.setStatus(ItemStatus.DONE);
+		}
+
+		return this;
+	}
+
 	public String toString() {
 		StringBuffer s = new StringBuffer();
 
@@ -35,7 +47,7 @@ public class ItemList {
 			s.append(item.getName());
 			s.append("\n");
 		}
-		
+
 		// letzten Zeilenumbruch "\n" entfernen
 		return s.toString().substring(0, s.length() - 1);
 	}

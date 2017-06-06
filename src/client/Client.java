@@ -3,6 +3,7 @@ package client;
 import java.util.Scanner;
 
 import dummy.DummyData;
+import model.Item;
 import model.ItemList;
 import view.ItemView;
 import view.MenuView;
@@ -20,24 +21,30 @@ public class Client {
 		MenuView.listMenu();
 		while (wahl != 0) {
 			wahl = keyboard.nextInt();
-
-			switch (wahl) {
-			case 0:
+			
+			if (wahl == 0) {
 				System.out.println("Bye Bye");
-				break;
-			case 1:
+				
+			} else if (wahl == 1) {
 				ItemView.displayItems(list);
-				break;
-			case 2:
-				System.out.println("case2");
-				break;
-			case 3:
-				System.out.println("case3");
-				break;
-			default:
+				
+			} else if (wahl == 2) {
+				System.out.print("Add new item: ");
+				String itemName = keyboard.next();
+				list.createNew(new Item(itemName));
+				System.out.println();
+				ItemView.displayItems(list);
+				
+			} else if (wahl == 3) {
+				System.out.println("Switch status");
+				list.switchStatus(keyboard.nextInt());
+				System.out.println();
+				ItemView.displayItems(list);
+				
+			} else {
 				System.out.println("da war was falsch");
-				break;
 			}
+
 		}
 
 		keyboard.close();
