@@ -20,6 +20,7 @@ public class Client {
 		int wahl = -1;
 		MenuView.listMenu();
 		while (wahl != 0) {
+			System.out.print("Choose menu option: ");
 			wahl = keyboard.nextInt();
 			
 			if (wahl == 0) {
@@ -36,7 +37,7 @@ public class Client {
 				ItemView.displayItems(list);
 				
 			} else if (wahl == 3) {
-				System.out.println("Switch status");
+				System.out.print("Switch status for item: ");
 				list.switchStatus(keyboard.nextInt());
 				System.out.println();
 				ItemView.displayItems(list);
