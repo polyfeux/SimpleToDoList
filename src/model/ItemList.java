@@ -35,6 +35,13 @@ public class ItemList {
 
 		return this;
 	}
+	
+	public ItemList renameItem(int id, String newName) {
+		Item temp = this.getItemById(id);
+		temp.setName(newName);
+		
+		return this;
+	}
 
 	public String toString() {
 		StringBuffer s = new StringBuffer();

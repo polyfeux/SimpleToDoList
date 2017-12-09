@@ -9,5 +9,7 @@ public class MenuView {
 		System.out.print("2 - create new item");
 		System.out.print(" / ");
 		System.out.println("3 - Switch status");
+		System.out.print(" \n");
+		System.out.println("4 - Rename item");
 	}
 }

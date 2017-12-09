@@ -42,6 +42,14 @@ public class Client {
 				System.out.println();
 				ItemView.displayItems(list);
 				
+			} else if (wahl == 4) {
+				System.out.print("Rename item: ");
+				int id = keyboard.nextInt();
+				String newItemName = keyboard.next();
+				list.renameItem(id, newItemName);
+				System.out.println();
+				ItemView.displayItems(list);
+				
 			} else {
 				System.out.println("da war was falsch");
 			}
